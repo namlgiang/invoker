@@ -1,0 +1,25 @@
+{
+  "name": "invoker",
+  "version": "1.0.0",
+  "description": "Invoker Center Service",
+  "repository": "",
+  "private": true,
+  "scripts": {
+    "start": "node app.js",
+    "monitor": "nodemon app.js",
+    "deploy": "gcloud preview app deploy app.yaml",
+    "lint": "jshint --exclude-path=.gitignore .",
+    "test": "npm run lint"
+  },
+  "author": "Nam Le",
+  "dependencies": {
+    "express": "^4.13.3",
+    "socket.io": "^1.4.4"
+  },
+  "devDependencies": {
+    "jshint": "^2.9.1"
+  },
+  "engines": {
+    "node": ">=0.12.7"
+  }
+}
