@@ -5,7 +5,7 @@ var io = require('socket.io')(http);
 
 var messages = [];
 
-app.use(express.static(__dirname + 'client'));
+app.use(express.static(__dirname + '/client'));
 
 app.get('/history', function(req, res) {
   res.send(messages);
