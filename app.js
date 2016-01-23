@@ -20,6 +20,6 @@ io.on('connection', function(socket) {
   });
 });
 
-http.listen(process.env.PORT || 80, function() {
+http.listen(process.env.PORT || 8080, function() {
   console.log("Listening...");
 });
