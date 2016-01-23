@@ -1,14 +1,11 @@
-console.log("Start App");
-
-var app = require('express')();
+var express = require('express');
+var app = express();
 var http = require('http').Server(app);
 var io = require('socket.io')(http);
 
 var messages = [];
 
-app.get('/', function(req, res) {
-  res.sendFile(__dirname + '/index.html');
-});
+app.use(express.static(__dirname + 'client'));
 
 app.get('/history', function(req, res) {
   res.send(messages);
@@ -23,6 +20,6 @@ io.on('connection', function(socket) {
   });
 });
 
-http.listen(process.env.PORT || 8080, function() {
-  console.log("Listening");
+http.listen(process.env.PORT || 80, function() {
+  console.log("Listening...");
 });
