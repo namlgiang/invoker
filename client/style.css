@@ -1,8 +1,168 @@
-* { margin: 0; padding: 0; box-sizing: border-box; }
-body { font: 13px Helvetica, Arial; }
-form { background: #000; padding: 3px; position: fixed; bottom: 0; width: 100%; }
-form input { border: 0; padding: 10px; width: 90%; margin-right: .5%; }
-form button { width: 9%; background: rgb(130, 224, 255); border: none; padding: 10px; }
-#messages { list-style-type: none; margin: 0; padding: 0; }
-#messages li { padding: 5px 10px; }
-#messages li:nth-child(odd) { background: #eee; }
+.login.active,
+.main.active,
+.chat.active {
+  display: block;
+}
+.chat {
+  width: 500px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-50%);
+  -webkit-transform: translateX(-50%) translateY(-50%);
+  border: 1px solid #dedede;
+  border-radius: 10px;
+  padding: 20px;
+  display: none;
+}
+.chat .title {
+  color: #666;
+  margin-bottom: 10px;
+  font-size: 16px;
+}
+.chat .messages {
+  list-style-type: none;
+  margin-bottom: 10px;
+  max-height: 300px;
+  overflow: auto;
+}
+.chat .messages li {
+  font-size: 12px;
+  color: #666;
+  padding: 2px 10px;
+  max-height: 300px;
+}
+.chat .messages li.reconnected,
+.chat .messages li.disconnected {
+  font-size: 10px;
+  font-style: italic;
+}
+.chat .messages li.reconnected {
+  color: #00ccff;
+}
+.chat .messages li.disconnected {
+  color: #740000;
+}
+.chat .message {
+  width: 290px;
+  margin-right: 12px;
+  padding: 8px 10px;
+  color: #00a0d1;
+}
+.chat button {
+  float: right;
+  margin-left: 10px;
+}
+@keyframes finding-match {
+  0% {
+    right: 100%;
+  }
+  100% {
+    right: -200%;
+  }
+}
+.main {
+  padding: 20px 40px;
+  box-shadow: 0 2px 5px rgba(0, 97, 133, 0.25);
+  border-radius: 5px;
+  top: 40%;
+  left: 50%;
+  position: absolute;
+  transform: translateX(-50%) translateY(-50%);
+  -webkit-transform: translateX(-50%) translateY(-50%);
+  text-align: center;
+  border: 1px solid #dedede;
+  display: none;
+}
+.main .find-match.active:after {
+  animation: finding-match 2s linear infinite;
+}
+.main .find-match,
+.main .log-out {
+  margin-top: 10px;
+}
+.login {
+  padding: 20px 40px;
+  box-shadow: 0 2px 5px rgba(0, 97, 133, 0.25);
+  border-radius: 5px;
+  top: 40%;
+  left: 50%;
+  position: absolute;
+  transform: translateX(-50%) translateY(-50%);
+  -webkit-transform: translateX(-50%) translateY(-50%);
+  text-align: center;
+  border: 1px solid #dedede;
+  display: none;
+}
+.login .msg {
+  font-size: 11px;
+  color: #C00;
+  margin-top: 5px;
+}
+.login .label {
+  color: #00a0d1;
+}
+.login .username {
+  color: #00a0d1;
+  padding: 5px 10px;
+  width: 200px;
+  margin: 20px 0;
+  text-align: center;
+  font-size: 12px;
+}
+button {
+  font-size: 12px;
+  background: none;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  color: #fff;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+}
+button:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #195eff;
+  z-index: -2;
+}
+button:after {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  top: 0;
+  right: 100%;
+  width: 200%;
+  height: 100%;
+  transition: 400ms cubic-bezier(0.25, 0.01, 0.2, 0.99);
+  -webkit-transition: 400ms cubic-bezier(0.25, 0.01, 0.2, 0.99);
+  background: -webkit-linear-gradient(left, #195eff 0%, #00a3ff 50%, #195eff 100%);
+  background: linear-gradient(to right, #195eff 0%, #00a3ff 50%, #195eff 100%);
+}
+button:hover:after {
+  right: 0%;
+}
+button:active:after {
+  right: 50%;
+}
+body {
+  margin: 0;
+  font-family: 'Open Sans', sans-serif;
+}
+ul,
+li {
+  margin: 0;
+  padding: 0;
+}
+a {
+  text-decoration: none;
+}
+button:focus,
+input:focus {
+  outline: none;
+}

@@ -1,17 +1,41 @@
 <!doctype html>
 <html>
   <head>
-    <title>Socket.IO chat</title>
+    <title>Invoker Client</title>
     <link rel="stylesheet" href="style.css">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700,600' rel='stylesheet' type='text/css'>
   </head>
   <body>
-    <ul id="messages"></ul>
-    <form action="">
-      <input id="m" autocomplete="off" /><button>Send</button>
-    </form>
+
+    <div class="login">
+      <div class="label">Choose your username</div>
+      <input type="text" class="username"><br>
+      <button class="submit">Choose</button><br>
+      <div class="msg"></div>
+    </div>
+
+    <div class="main">
+      <div class="welcome">
+        Welcome to the game, <span class="name"></span>!
+      </div>
+      <button class="find-match">Find Match</button><br>
+      <button class="log-out">Log Out</button><br>
+    </div>
+
+    <div class="chat">
+      <div class="title"></div>
+      <ul class="messages">
+      </ul>
+      <div class="control">
+        <input type="text" class="message">
+        <button class="leave">Leave</button>
+        <button class="send">Send</button>
+      </div>
+    </div>
 
     <script src="/socket.io/socket.io.js"></script>
     <script src="https://code.jquery.com/jquery-1.11.1.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
     <script src="client.js"></script>
 
   </body>
