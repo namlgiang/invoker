@@ -161,6 +161,7 @@ socket.on('logout complete', function(data) {
   if(data) {
     $(".login").addClass("active");
     $(".main").removeClass("active");
+    $(".find-match").text("Find match").removeClass("active");
   }
 });
 
