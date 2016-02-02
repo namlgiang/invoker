@@ -120,6 +120,8 @@ io.on('connection', function(socket) {
 
   // Log out
   socket.on('logout', function() {
+    if(waitingUser.socket.id == socket.id)
+      waitingUser = undefined;
     for(var i=0; i<users.length; i++)
       if(users[i].socket.id == socket.id) {
         disconnectUser(users[i]);
